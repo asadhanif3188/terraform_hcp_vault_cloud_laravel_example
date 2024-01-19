@@ -18,6 +18,7 @@ module "rds_mysql" {
   major_engine_version= "8.0"  # Choose the MySQL version you need
   family              = "mysql8.0"
   instance_class      = "db.t2.micro"  # Free tier eligible instance type
+  storage_encrypted   = false
   allocated_storage   = 20  # Storage in GB
   username            = "root" #"admin"
   password            = random_password.password.result
