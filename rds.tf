@@ -14,7 +14,7 @@ module "rds_mysql" {
 #  name                = "${var.prefix}rds-mysql"
   identifier          = "${var.prefix}rds-mysql"
   engine              = "mysql"
-  engine_version      = "8.0.23"  # Choose the MySQL version you need
+  engine_version      = "8.0.35"  # Choose the MySQL version you need
   major_engine_version= "8.0"  # Choose the MySQL version you need
   family              = "mysql8.0"
   instance_class      = "db.t2.micro"  # Free tier eligible instance type
