@@ -1,3 +1,4 @@
+/*
 resource "hcp_hvn" "hvn" {
   hvn_id         = "${var.prefix}hvn"
   cloud_provider = "aws"
@@ -41,3 +42,5 @@ resource "hcp_vault_cluster" "vault" {
   tier            = "dev"
   public_endpoint = true
 }
+
+*/

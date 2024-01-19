@@ -1,3 +1,4 @@
+/*
 data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
@@ -108,3 +109,5 @@ resource "aws_iam_role_policy" "ecs_exec_policy" {
   role   = module.ecs.services["${var.prefix}laravel"]["tasks_iam_role_name"]
   policy = file("${path.module}/ecs-exec-policy.json")
 }
+
+*/

@@ -38,7 +38,7 @@ module "rds_mysql" {
 }
 
 
-
+/*
 # module "aurora_mysql_v2" {
 #   source                      = "terraform-aws-modules/rds-aurora/aws"
 #   version                     = "8.3.1"
@@ -73,3 +73,5 @@ module "rds_mysql" {
 #     master = {}
 #   }
 # }
+
+*/
