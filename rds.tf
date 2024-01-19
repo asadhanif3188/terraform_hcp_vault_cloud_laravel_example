@@ -15,7 +15,8 @@ module "rds_mysql" {
   identifier          = "${var.prefix}rds-mysql"
   engine              = "mysql"
   engine_version      = "8.0.23"  # Choose the MySQL version you need
-  major_engine_version= "8.0.23"  # Choose the MySQL version you need
+  major_engine_version= "8.0"  # Choose the MySQL version you need
+  family              = "mysql8.0"
   instance_class      = "db.t2.micro"  # Free tier eligible instance type
   allocated_storage   = 20  # Storage in GB
   username            = "root" #"admin"
