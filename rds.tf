@@ -10,7 +10,7 @@ resource "aws_db_subnet_group" "default" {
 
 module "rds_mysql" {
   source              = "terraform-aws-modules/rds/aws"
-  version             = "3.14.0"
+  version             = "6.3.1"
   name                = "${var.prefix}-rds-mysql"
   engine              = "mysql"
   engine_version      = "8.0.23"  # Choose the MySQL version you need
