@@ -8,6 +8,31 @@ resource "aws_db_subnet_group" "default" {
   subnet_ids = module.vpc.private_subnets
 }
 
+resource "aws_security_group" "rds_security_group" {
+  name        = "${var.prefix}rds-security-group"
+  description = "RDS Security Group"
+
+  vpc_id = module.vpc.vpc_id  # Assuming module.vpc is your VPC module
+
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = module.vpc.private_subnets_cidr_blocks
+  }
+
+/*
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = [hcp_hvn.hvn.cidr_block]
+  }
+  */
+}
+
+
+
 module "rds_mysql" {
   source              = "terraform-aws-modules/rds/aws"
   version             = "6.0.0"
@@ -26,9 +51,10 @@ module "rds_mysql" {
   multi_az            = false  # Set to true if you want a Multi-AZ deployment
   publicly_accessible = false  # Set to true if you want the database to be publicly accessible
 
-  vpc_security_group_ids = [module.vpc.default_security_group_id]
+  vpc_security_group_ids = [aws_security_group.rds_security_group.id]
 
-  subnet_ids = module.vpc.private_subnets   # module.vpc.private_subnets_ids
+  subnet_ids          = module.vpc.private_subnets   # module.vpc.private_subnets_ids
+#  db_subnet_group_name  = aws_db_subnet_group.default.name
 
   apply_immediately   = true
 
