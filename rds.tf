@@ -26,6 +26,8 @@ module "rds_mysql" {
 
   subnet_ids = module.vpc.private_subnets_ids
 
+  apply_immediately   = true
+
   tags = {
     Terraform   = "true"
     Environment = "dev"
