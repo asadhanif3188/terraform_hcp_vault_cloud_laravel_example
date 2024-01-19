@@ -25,7 +25,7 @@ module "rds_mysql" {
 
   vpc_security_group_ids = [module.vpc.default_security_group_id]
 
-  subnet_ids = module.vpc.private_subnets_ids
+  subnet_ids = module.vpc.private_subnets   # module.vpc.private_subnets_ids
 
   apply_immediately   = true
 
